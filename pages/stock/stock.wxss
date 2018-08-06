@@ -96,12 +96,22 @@
     left: 372rpx;
 }
 
+#section_quotation .quota_colum4_5 {
+    position: absolute;
+    left: 396rpx;
+}
+
 #section_quotation .quota_colum5 {
     position: absolute;
-    left: 554rpx;
+    left: 530rpx;
 }
 
 #section_quotation .quota_colum6 {
+    position: absolute;
+    left: 608rpx;
+}
+
+#section_quotation .quota_colum6_7 {
     position: absolute;
     left: 632rpx;
 }

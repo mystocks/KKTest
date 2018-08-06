@@ -49,10 +49,46 @@ function parseMinutesData(data) {
 // 解析k线数据
 function parseKLinesData(array) {
     var results = []
+    var ma5sum = 0.0
+    var ma10sum = 0.0
+    var ma20sum = 0.0
+    var day5 = 5
+    var day10 = 10
+    var day20 = 20
+    /*
     for (var i = array.length - 1; i >= 0; i--) {
         var item = new KLineData(array[i].datetime, array[i].open, array[i].high, array[i].low, array[i].close, array[i].ma5, array[i].ma10, array[i].ma20, array[i].amount, array[i].price, array[i].volume)
         results.push(item)
+    }*/
+    //console.log('get kline result data ', array[0][0], array.length)
+    //for (var i = array.length - 1; i >= 0; i--) {
+    for (var i = 0; i < array.length; i++) {
+      var data = array[i]
+      var ma5 = 0.0
+      var ma10 = 0.0
+      var ma20 = 0.0
+      ma5sum += data[2]
+      ma10sum += data[2]
+      ma20sum += data[2]
+      if (i >= day5)
+      {
+        ma5sum -= array[i - day5][2]
+        ma5 = ma5sum/day5
+      }
+      if(i >= day10)
+      {
+        ma10sum -= array[i - day10][2]
+        ma10 = ma10sum/day10        
+      }
+      if(i >= day20)
+      {
+        ma20sum -= array[i-day20][2]
+        ma20 = ma20sum/day20
+      }
+      var item = new KLineData(data[0], data[1], data[3], data[4], data[2], ma5, ma10, ma20, 0, data[2], data[5])
+      results.push(item)
     }
+    //console.log(results)
     return results
 }
 

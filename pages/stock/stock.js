@@ -16,7 +16,7 @@ Page({
         goodsName: '青岛啤酒',
         goodsCode: '600600',
         quotationColor: '#eb333b',
-        currentTimeIndex: 0,
+        currentTimeIndex: 1,
         currentInfoIndex: 0,
         quotePeriod: 1,
         quoteData: {

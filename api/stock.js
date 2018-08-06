@@ -53,7 +53,7 @@ function getMinutes({id, date, time, mmp = false} = {}) {
             last_recv_time: time,
             request_mmp: mmp
         },
-        url: `${Service.BaseQuotaUrl}20300`,
+        url: `${Service.BaseQuotaUrl}getMinutes`,
     }).then(function (res) {
         if (res.statusCode == 200) {
             // console.log('get minute result data ', res.data)
@@ -88,11 +88,12 @@ function getKLines({id, begin, size, period, time = 0, ma = 7} = {}) {
             last_update_market_time: time,
             req_ma: ma
         },
-        url: `${Service.BaseQuotaUrl}20400`,
+        url: `${Service.BaseQuotaUrl}getKLines`,
     }).then(function (res) {
         if (res.statusCode == 200) {
-            // console.log('get kline result data ' , res.data)
-            var results = parser.parseKLinesData(res.data.k_lines)
+             //console.log('get kline result data ' , res.data)
+             //data对应context
+             var results = parser.parseKLinesData(res.data.klineData)
             return results
         } else {
             return Promise.reject(StaticStrings.kGetDataErrorInfo)
