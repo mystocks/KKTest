@@ -289,8 +289,10 @@ KLineCanvas.prototype.calculate = function () {
       strDateLast = aryDate[1] + "-" + aryDate[2] + " " + aryDate[3];
     }
   } else {
-    strDateFirst = util.formatDateYYYYmmdd(dateFirst, '-');
-    strDateLast = util.formatDateYYYYmmdd(dateLast, '-');
+    //strDateFirst = util.formatDateYYYYmmdd(dateFirst, '-');//dateFirst输入就是字符串，所以不用再转换
+    strDateFirst = dateFirst
+    //strDateLast = util.formatDateYYYYmmdd(dateLast, '-');
+    strDateLast = dateLast
   }
 
   console.log('kline canvas get datatime ', atomLast, dateLast, strDateLast)

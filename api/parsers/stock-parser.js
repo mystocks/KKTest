@@ -85,7 +85,7 @@ function parseKLinesData(array) {
         ma20sum -= array[i-day20][2]
         ma20 = ma20sum/day20
       }
-      var item = new KLineData(data[0], data[1], data[3], data[4], data[2], ma5, ma10, ma20, 0, data[2], data[5])
+      var item = new KLineData(data[0], data[1], data[3], data[4], data[2], ma5, ma10, ma20, data[5], data[2], data[5])
       results.push(item)
     }
     //console.log(results)

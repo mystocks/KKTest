@@ -18,7 +18,7 @@ Page({
         quotationColor: '#eb333b',
         currentTimeIndex: 1,
         currentInfoIndex: 0,
-        quotePeriod: 1,
+        quotePeriod: 2,
         quoteData: {
             canvasIndex: 0
         },
