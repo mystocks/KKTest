@@ -12,6 +12,7 @@ Page({
     data: {
         // 个股头部数据
         quotation: {},
+        klinedata: [],//存放K線數據以及預測數據
         goodsId: 600600,
         goodsName: '青岛啤酒',
         goodsCode: '600600',
@@ -121,10 +122,12 @@ Page({
             wx.hideNavigationBarLoading()
             wx.stopPullDownRefresh()
         })
+        /*
         // 请求个股资讯，具体是否请求，在getNews中判断
         this.getNews(function () {
             wx.hideNavigationBarLoading()
         })
+        */
     },
 
     // 获取行情数据
@@ -189,6 +192,7 @@ Page({
                 callback()
             }
             // console.log('stock kline result ', results)
+            that.setData({ klinedata: results })
             that.kLineView.drawKLineCanvas(results, getCanvasId(that.data.quotePeriod), that.data.quotePeriod)
         }, function (res) {
             console.log("------fail----", res)

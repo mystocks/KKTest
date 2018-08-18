@@ -60,7 +60,7 @@
 <!-- 绘制K线图，定义了5个canvas，只显示一个，隐藏其他4个 -->
 <template is="KLineView" data="{{...quoteData}}" />
 
-<!-- 新闻、资金、公告、研报 -->
+<!-- 预测、统计项 -->
 <view id="selector_info">
   <text style="background-color:{{currentInfoIndex == 0 ? '#eb333b' : '#f8f8f8'}}; color:{{currentInfoIndex == 0 ? '#ffffff' : '#353535'}}; border:{{currentInfoIndex == 0 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}};" border-left: none;
   bindtap="onInfoSelectorClick" data-index="0">预测</text>
@@ -74,16 +74,24 @@
 
 <view id="section_infos">
 
-  <!-- 新闻 -->
+  <!-- 预测 -->
   <view hidden="{{currentInfoIndex != 0}}">
-    <view class="news_item" hover="true" hover-class="item_select" wx:key="id" wx:for="{{news}}" bindtap="onNewsDetailEvent" data-news-item="{{item}}" data-news-type="0">
-      <text class="time"> {{item.time}} </text>
-      <text class="title"> {{item.title}} </text>
+    <view class="container_predict-header B1">
+      <text class="S1 T2 stock-header-sortlable_left">日期</text>
+      <text class="S1 T2 stock-header-sortlable_center">最新价</text>
+      <text class="S1 T2 stock-header-sortlable_center_2">預測值</text>
+      <text class="S1 C1-font stock-header-sortlable_right">實際值</text>
     </view>
-    <view class="showOnInfoEmpty" bindtap="onInfoEmptyClick" hidden="{{news.length != 0}}">暂无数据，请点击重试</view>
+    <view class="news_item" hover="true" hover-class="item_select" wx:key="id" wx:for="{{klinedata}}" bindtap="onNewsDetailEvent" data-news-item="{{item}}" data-news-type="0">
+      <text class="S0 T3 stock-header-sortlable_left"> {{item.time}} </text>
+      <text class="S1 T3 stock-header-sortlable_center"> {{item.open}} </text>
+      <text class="S1 T3 stock-header-sortlable_center_2"> {{item.high}} </text>
+      <text class="S1 T3 stock-header-sortlable_right"> {{item.close}} </text>
+    </view>
+    <view class="showOnInfoEmpty" bindtap="onInfoEmptyClick" hidden="{{news.length != 0}}">暂无预测数据，请重试</view>
   </view>
 
-  <!-- 资金 -->
+  <!-- 统计 -->
   <view hidden="{{currentInfoIndex != 1}}">
     <template is="fundview" data="{{...fundViewData}}" />
   </view>
@@ -98,18 +106,18 @@
   </view>
 
   <!-- 研报 -->
-  <view hidden="{{currentInfoIndex != 3}}">
+  <!--view hidden="{{currentInfoIndex != 3}}">
     <view class="news_item" hover="true" hover-class="item_select" wx:key="id" wx:for="{{research}}" bindtap="onNewsDetailEvent" data-news-item="{{item}}" data-news-type="2">
       <text class="time"> {{item.time}} </text>
       <text class="title"> {{item.title}} </text>
     </view>
     <view class="showOnInfoEmpty" bindtap="onInfoEmptyClick" hidden="{{research.length != 0}}">暂无数据，请点击重试</view>
-  </view>
+  </view-->
 
 </view>
 
 <!-- 添加自选 -->
-<view id="section_add_zxg" bindtap="onZxgTap">
+<!--view id="section_add_zxg" bindtap="onZxgTap">
   <image src="{{isAddToZxg ? '/images/remove_zxg.png' : '/images/add_zxg.png'}}"></image>
   <text>{{isAddToZxg ? '删除自选' : '添加自选'}}</text>
-</view>
+</view-->

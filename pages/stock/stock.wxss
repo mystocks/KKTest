@@ -234,3 +234,50 @@
     text-align: center;
     line-height: 270rpx;
 }
+
+.stock-header-sortlable_left {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  line-height: 50rpx;
+  text-align: center;
+  align-content: left;
+}
+
+.stock-header-sortlable_center {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.stock-header-sortlable_center_2 {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  line-height: 50rpx;
+  text-align: center;
+}
+.stock-header-sortlable_right {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.container_predict-header {
+  position: relative;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+  width: 100%;
+  height: 55rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #e4e4e4;
+  border-top: 1rpx solid #e4e4e4;
+}
