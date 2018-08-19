@@ -12,30 +12,24 @@
     "pages/fund/fund"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#37383b",
-    "navigationBarTitleText": "好股365",
+    "navigationBarBackgroundColor": "#373858",
+    "navigationBarTitleText": "智能选股",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
   "tabBar": {
     "selectedColor": "#09bb07",
-    "color": "#353535",
+    "color": "#353555",
     "list": [
       {
         "pagePath": "pages/optional/optional",
-        "text": "自选",
+        "text": "推荐",
         "iconPath": "images/tab_optional_nor.png",
         "selectedIconPath": "images/tab_optional_sel.png"
       },
       {
-        "pagePath": "pages/kanpan/kanpan",
-        "text": "看盘",
-        "iconPath": "images/tab_kanpan_nor.png",
-        "selectedIconPath": "images/tab_kanpan_sel.png"
-      },
-      {
         "pagePath": "pages/haogu/haogu",
-        "text": "好股",
+        "text": "统计",
         "iconPath": "images/tab_haogu_nor.png",
         "selectedIconPath": "images/tab_haogu_sel.png"
       }
