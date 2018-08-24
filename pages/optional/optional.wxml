@@ -2,7 +2,8 @@
 
 <!--指数cell模板-->
 <template name="indexCell">
-  <view class="{{itsclass}}" bindtap="onIndexTap" data-id="{{goodsid}}" data-name="{{name}}">
+  <!--view class="{{itsclass}}" bindtap="onIndexTap" data-id="{{goodsid}}" data-name="{{name}}"-->
+  <view class="{{itsclass}}" data-id="{{goodsid}}" data-name="{{name}}">
     <text class="S4 T3 indexcell-name">{{name}}</text>
     <text class="S7 {{intZd == 0 ? 'T3' :(intZd > 0? 'C1-font': 'C2-font')}} indexcell-name">{{zxj}}</text>
     <view class="container_h-indexcell-zd">
@@ -15,16 +16,16 @@
 
 <!--个股item模板-->
 <template name="optionalItem">
-  <view class="container-tooltip" data-tap-index="{{index}}" catchtap="onTapOptionalItem" catchlongtap="onLongTapOptionalItem">
+  <view class="container-tooltip" hover="true" hover-class="item_select" data-tap-index="{{index}}" catchtap="onTapOptionalItem" catchlongtap="onLongTapOptionalItem">
     <view class="container_h-item">
       <view class="container_v-item-goodname">
         <text class="S5 T3">{{good.name}}</text>
         <text class="S1 T2" style="margin-top:10rpx">{{good.code}}</text>
       </view>
       <text class="S7 T3 optional-item-zxj">{{good.suspension==1?'--': good.zxj}}</text>
-      <text class="S7 T4 optional-item-zdf {{good.intZd == 0? 'B5': (good.intZd > 0?'C1-bg': 'C2-bg')}}">{{good.suspension==1?'停牌': good.zdf}}</text>
+      <text class="S7 T4 optional-item-zdf {{good.intZd == 0? 'B5': (good.intZd > 0?'C1-bg': 'C2-bg')}}">{{good.intZd <=0?good.zdf: "+"+good.zdf}}</text>
     </view>
-    <text class="S4 T3 tooltiptext" hidden="{{index != del}}" data-del-index="{{index}}" catchtap="onDelOtpional">删除</text>
+    <!--text class="S4 T3 tooltiptext" hidden="{{index != del}}" data-del-index="{{index}}" catchtap="onDelOtpional">删除</text-->
   </view>
 </template>
 <view class="container-frame" catchtap="onscreenTap">
@@ -38,20 +39,22 @@
 
   <!--排序头-->
   <view class="container_h-header B1">
-    <text class="S2 T2 optional-header-sortlable_left">名称</text>
-    <text class="S2 T2 optional-header-sortlable_center">最新价</text>
-    <text class="S2 C1-font optional-header-sortlable_right" catchtap="doChangeSort_zdf">{{sortType == 1?'涨跌幅↓':'涨跌幅↑'}}</text>
+    <text class="S2 T3 optional-header-sortlable_left">股票</text>
+    <text class="S2 T3 optional-header-sortlable_center">最新价</text>
+    <!--text class="S2 C1-font optional-header-sortlable_right" catchtap="doChangeSort_zdf">{{sortType == 1?'涨跌幅↓':'涨跌幅↑'}}</text-->
+    <text class="S2 T3 optional-header-sortlable_right">涨跌幅</text>
   </view>
 
   <!--列表-->
   <view wx:key="em" wx:for="{{aryGoods}}" wx:for-index="idx" wx:for-item="itemdata">
     <template is="optionalItem" data="{{del:displayDelIndex,index:idx,good:itemdata}}"></template>
   </view>
-  <image class="search-icon" mode="scaleToFill" src="../../images/optional_add.png" hidden="{{aryGoods.length != 0}}" bindtap="onAddBtnTap"></image>
+  <!--image class="search-icon" mode="scaleToFill" src="../../images/optional_add.png" hidden="{{aryGoods.length != 0}}" bindtap="onAddBtnTap"></image-->
+  <view class="showLoadInfo" hidden="{{aryGoods.length != 0}}">运用机器学习预测未来股价<navigator>点击列表项查看详细</navigator></view>
 </view>
 
 <!--搜索按钮-->
-<view class="icon_search" bindtap="onStockSearchEvent">
+<!--view class="icon_search" bindtap="onStockSearchEvent">
     <icon type="search" size="23"/>
     <text style="color: #dddddd; font-size: 26rpx;">搜索</text>
-</view>
+</view-->

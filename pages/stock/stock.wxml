@@ -48,8 +48,8 @@
 <view id="selector_time">
   <!--text style="background-color:{{currentTimeIndex == 0 ? '#eb333b' : '#f8f8f8'}}; color:{{currentTimeIndex == 0 ? '#ffffff' : '#353535'}}; border:{{currentTimeIndex == 0 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}};" border-left: none;
   bindtap="onPeriodSelectorClick" data-index="0">分时</text-->
-  <text style="background-color:{{currentTimeIndex == 1 ? '#eb333b' : '#f8f8f8'}}; color:{{currentTimeIndex == 1 ? '#ffffff' : '#353535'}}; border:{{currentTimeIndex == 1 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}}; border-left: none;"
-  bindtap="onPeriodSelectorClick" data-index="1">日线</text>
+  <text style="background-color:{{currentTimeIndex == 1 ? '#d81e06' : '#f8f8f8'}}; color:{{currentTimeIndex == 1 ? '#ffffff' : '#353535'}};  border:{{currentTimeIndex == 1 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}};  border-left: none;"
+ data-index="1">日线</text>
   <!--text style="background-color:{{currentTimeIndex == 2 ? '#eb333b' : '#f8f8f8'}}; color:{{currentTimeIndex == 2 ? '#ffffff' : '#353535'}}; border:{{currentTimeIndex == 2 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}}; border-left: none;"
   bindtap="onPeriodSelectorClick" data-index="2">周线</text>
   <text style="background-color:{{currentTimeIndex == 3 ? '#eb333b' : '#f8f8f8'}}; color:{{currentTimeIndex == 3 ? '#ffffff' : '#353535'}}; border:{{currentTimeIndex == 3 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}}; border-left: none;"
@@ -62,9 +62,9 @@
 
 <!-- 预测、统计项 -->
 <view id="selector_info">
-  <text style="background-color:{{currentInfoIndex == 0 ? '#eb333b' : '#f8f8f8'}}; color:{{currentInfoIndex == 0 ? '#ffffff' : '#353535'}}; border:{{currentInfoIndex == 0 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}};" border-left: none;
+  <text style="background-color:{{currentInfoIndex == 0 ? '#d81e06' : '#9c979779'}}; color:{{currentInfoIndex == 0 ? '#ffffff' : '#353535'}}; border:{{currentInfoIndex == 0 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}};" border-left: none;
   bindtap="onInfoSelectorClick" data-index="0">预测</text>
-  <text style="background-color:{{currentInfoIndex == 1 ? '#eb333b' : '#f8f8f8'}}; color:{{currentInfoIndex == 1 ? '#ffffff' : '#353535'}}; border:{{currentInfoIndex == 1 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}}; border-left: none;"
+  <text style="background-color:{{currentInfoIndex == 1 ? '#d81e06' : '#9c979779'}}; color:{{currentInfoIndex == 1 ? '#ffffff' : '#353535'}}; border:{{currentInfoIndex == 1 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}}; border-left: none;"
   bindtap="onInfoSelectorClick" data-index="1">统计</text>
   <!--text style="background-color:{{currentInfoIndex == 2 ? '#eb333b' : '#f8f8f8'}}; color:{{currentInfoIndex == 2 ? '#ffffff' : '#353535'}}; border:{{currentInfoIndex == 2 ? '1rpx solid rgba(255, 255, 255, 0)' : '1rpx solid #dadada'}}; border-left: none;"
   bindtap="onInfoSelectorClick" data-index="2">公告</text>
@@ -82,27 +82,28 @@
       <text class="S1 T2 stock-header-sortlable_center_2">预测值</text>
       <text class="S1 C1-font stock-header-sortlable_right">实际值</text>
     </view>
-    <view class="news_item" hover="true" hover-class="item_select" wx:key="id" wx:for="{{klinedata}}" bindtap="onNewsDetailEvent" data-news-item="{{item}}" data-news-type="0">
+    <!--hover="true" hover-class="item_select"-->
+    <view class="news_item" wx:key="id" wx:for="{{klinedata}}" bindtap="onNewsDetailEvent" data-news-item="{{item}}" data-news-type="0">
       <text class="S0 T3 stock-header-sortlable_left"> {{item.time}} </text>
-      <text class="S1 T3 stock-header-sortlable_center"> {{item.open}} </text>
-      <text class="S1 T3 stock-header-sortlable_center_2"> {{item.high}} </text>
-      <text class="S1 T3 stock-header-sortlable_right"> {{item.close}} </text>
+      <text class="S1 T3 stock-header-sortlable_center"> {{item.close}} </text>
+      <text class="S1 T3 stock-header-sortlable_center_2"> {{item.predict1}} </text>
+      <text class="S1 T3 stock-header-sortlable_right"> {{item.realprice1}} </text>
     </view>
-    <view class="showOnInfoEmpty" bindtap="onInfoEmptyClick" hidden="{{klinedata.length != 0}}">暂无预测数据，请重试</view>
+    <view class="showOnInfoEmpty" bindtap="onInfoEmptyClick" hidden="{{klinedata.length != 0}}">无预测数据，请点击重试</view>
   </view>
 
   <!-- 统计 -->
-  <view hidden="{{currentInfoIndex != 1}}">
+  <!--view hidden="{{currentInfoIndex != 1}}">
     <template is="fundview" data="{{...fundViewData}}" />
-  </view>
+  </view-->
 
   <!-- 公告 -->
-  <view hidden="{{currentInfoIndex != 2}}">
+  <view hidden="{{currentInfoIndex != 1}}">
     <view class="news_item" hover="true" hover-class="item_select" wx:key="id" wx:for="{{notices}}" bindtap="onNewsDetailEvent" data-news-item="{{item}}" data-news-type="1">
       <text class="time"> {{item.time}} </text>
       <text class="title"> {{item.title}} </text>
     </view>
-    <view class="showOnInfoEmpty" bindtap="onInfoEmptyClick" hidden="{{notices.length != 0}}">暂无数据，请点击重试</view>
+    <view class="showOnInfoEmpty" bindtap="onInfoEmptyClick" hidden="{{notices.length != 0}}">无统计数据，请点击重试</view>
   </view>
 
   <!-- 研报 -->

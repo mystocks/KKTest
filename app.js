@@ -25,7 +25,7 @@ App({
     shareDesc: '帮你炒好股',
     currSystemDate: '',//当前系统日期,格式：2016-01-01
     currSystemTime: '',//当前系统时间,格式：133050
-    waitForRequestOptionsTime: 3 * 1000,//等待获取自选股列表的时间
+    bisshowloadtips:0,//等待获取自选股列表的时间
   },
 
   onLaunch: function () {
@@ -35,7 +35,7 @@ App({
     //网络类型
     appUtil.getNetWorkType()
     //获取系统时间
-    this.getSystemTime()
+    //this.getSystemTime()
 
   },
 
@@ -61,7 +61,7 @@ App({
     var that = this;
     intervalId = setInterval(function () {
       //获取系统时间
-      that.getSystemTime()
+      //that.getSystemTime()
     }, 10 * 60 * 1000);
   },
 

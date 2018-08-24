@@ -14,19 +14,19 @@ Page({
         quotation: {},
         klinedata: [],//存放K線數據以及預測數據
         goodsId: 600600,
-        goodsName: '青岛啤酒',
-        goodsCode: '600600',
-        quotationColor: '#eb333b',
+        goodsName: '读者传媒',
+        goodsCode: '603999',
+        quotationColor: '#eb335b',
         currentTimeIndex: 1,
         currentInfoIndex: 0,
         quotePeriod: 2,
         quoteData: {
             canvasIndex: 0
         },
-        news: [],               // 新闻列表数据
-        notices: [],            // 公告列表数据
-        research: [],           // 研报列表数据
-        infoSwiperHeight: 0,    // 新闻列表、资金图高度
+        news: [],               
+        notices: [],           
+        research: [],          
+        infoSwiperHeight: 0,
         infoCls: '0',
         fundViewData: {},
         isInforLoad: {    // 个股新闻等是否已加载
@@ -141,7 +141,7 @@ Page({
             if (callback != null && typeof (callback) == 'function') {
                 callback()
             }
-            console.log('stock quotation value result ', results)
+            //console.log('stock quotation value result ', results)
             if (results != null) {
                 that.setData({ quotation: results })
                 fundview.setJLValue(that);
@@ -192,8 +192,8 @@ Page({
                 callback()
             }
             // console.log('stock kline result ', results)
-            that.setData({ klinedata: results })
             that.kLineView.drawKLineCanvas(results, getCanvasId(that.data.quotePeriod), that.data.quotePeriod)
+            that.setData({ klinedata: results.reverse() })//逆序显示，最新的显示在最前
         }, function (res) {
             console.log("------fail----", res)
             wx.hideNavigationBarLoading()

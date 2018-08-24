@@ -34,7 +34,7 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '好股',
+      title: '统计',
       desc: `${getApp().globalData.shareDesc}`,
       path: `/pages/haogu/haogu`
     }

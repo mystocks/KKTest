@@ -9,7 +9,7 @@ var XAxisLayer = require('XAxisLayer.js')
 var GroupLayer = require('GroupLayer.js')
 var draw = require('../../../../utils/canvasUtil.js')
 var util = require('../../../../utils/util.js')
-
+var Color = require('../../../../models/Color.js')
 function KLineCanvas(period) {
   this.mIsInit = false;    // 是否已初始化K线绘图区域布局结构和设置
 
@@ -65,7 +65,7 @@ KLineCanvas.prototype.initLayers = function () {
     this.kLineLayer.setStrokeWidth(strokeWidth);
     this.kLineLayer.setOnDrawCallback(function (context, pos) {
       var atom = that.kLineLayer.getValue(pos)
-      var color = '#e64340'
+      var color = Color.c1;
 
       var zdFlag = 0
       if (atom.mClose > atom.mOpen) {
@@ -86,7 +86,7 @@ KLineCanvas.prototype.initLayers = function () {
       }
 
       if (zdFlag < 0) {
-        color = '#09bb07'
+        color = Color.c2
       }
 
       context.setStrokeStyle(color)

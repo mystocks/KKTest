@@ -75,13 +75,14 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '自选',
+      title: '智能推荐',
       desc: `${getApp().globalData.shareDesc}`,
       path: `/pages/optional/optional`
     }
   },
 
   doChangeSort_zdf: function () {
+    return;
     var tDel = this.data.displayDelIndex;
     if (tDel != -1) {
       this.setData({
@@ -200,6 +201,7 @@ function requestCustomGoodsInfo(that) {
 
   var tIndex = ['sh', 'sz', 'cyb'];
   var tOptional = getApp().globalData.optionals;
+  var bIsShowTips = getApp().globalData.bisshowloadtips;
   var tCustom = tIndex.concat(tOptional);
 
   console.log("option::requestCustomGoodsInfo:sky optional 1", tCustom)
@@ -218,6 +220,11 @@ function requestCustomGoodsInfo(that) {
         });
         var resOptional = res.customDetail.slice(3);
         sortAndSetGoods(that, tSortType, resOptional);
+        if (res.customDetail.length > 3 && 0 == bIsShowTips)
+        {
+          wx.hideToast();
+          getApp().globalData.bisshowloadtips = 1;
+        }
       }
     },
     function (err) {
@@ -232,18 +239,24 @@ function requestCustomGoodsInfo(that) {
 //启动计时
 function startTimer(that) {
   var myOptions = getApp().globalData.optionals;
-  var waitTimes = getApp().globalData.waitForRequestOptionsTime;
-  while(myOptions == [] && waitTimes > 0){
-    sleep(1*1000)
-    waitTimes -= 1*1000;
-    myOptions = getApp().globalData.optionals;
-    console.log("startTimer:result=",myOptions)
-  }
+  var bIsShowTips = getApp().globalData.bisshowloadtips;
   requestCustomGoodsInfo(that);
+  if (0 == bIsShowTips){
+    wx.showToast({ title: '玩命加载中...', icon: 'loading', duration: 10000 })
+  }
   var interval = getApp().globalData.netWorkType == 'wifi' ? getApp().globalData.WIFI_REFRESH_INTERVAL : getApp().globalData.MOBILE_REFRESH_INTERVAL;
   intervalId = setInterval(function () {
-    requestCustomGoodsInfo(that);
-  }, interval);
+    if(myOptions.length == 0){
+      myOptions = getApp().globalData.optionals;
+    }
+    else{
+      stopTimer()
+      requestCustomGoodsInfo(that);
+      intervalId = setInterval(function () {
+        requestCustomGoodsInfo(that);
+      }, interval);
+    }
+  }, 500);
 };
 
 //停止计时

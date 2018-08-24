@@ -1,15 +1,8 @@
 {
   "pages": [
     "pages/optional/optional",
-    "pages/kanpan/kanpan",
-    
     "pages/haogu/haogu",
-    "pages/search/search",
-    "pages/stock/stock",
-    "pages/newsdetail/newsdetail",
-    "pages/index/index",
-    "pages/bk/bk",
-    "pages/fund/fund"
+    "pages/stock/stock"
   ],
   "window": {
     "navigationBarBackgroundColor": "#373858",
@@ -18,20 +11,20 @@
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "selectedColor": "#09bb07",
+    "selectedColor": "#d81e06",
     "color": "#353555",
     "list": [
       {
         "pagePath": "pages/optional/optional",
-        "text": "推荐",
-        "iconPath": "images/tab_optional_nor.png",
-        "selectedIconPath": "images/tab_optional_sel.png"
+        "text": "智能推荐",
+        "iconPath": "images/k-normal.png",
+        "selectedIconPath": "images/k-select.png"
       },
       {
         "pagePath": "pages/haogu/haogu",
         "text": "统计",
-        "iconPath": "images/tab_haogu_nor.png",
-        "selectedIconPath": "images/tab_haogu_sel.png"
+        "iconPath": "images/suc-normal.png",
+        "selectedIconPath": "images/suc-select.png"
       }
     ]
   },

@@ -27,7 +27,7 @@
 }
 
 .item_select {
-  background-color: rgb(248, 248, 248);
+  background-color: rgb(239, 239, 244);
 }
 
 /*.icon_search {

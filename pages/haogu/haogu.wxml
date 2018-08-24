@@ -45,6 +45,6 @@
     </view>
   </block>
 </view>
-
+<view class="showLoadInfo">暂无数据，请重试</view>
 <!--搜索按钮-->
-<image class="icon_search" src="../../images/icon_optional_search.png" bindtap="onStockSearchEvent"></image>
+<!--image class="icon_search" src="../../images/icon_optional_search.png" bindtap="onStockSearchEvent"></image-->

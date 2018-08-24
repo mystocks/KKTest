@@ -133,13 +133,13 @@
     text-align: center;
     line-height: 60rpx;
 }
-
+/*修改下面的值，才能确定第一个左边为圆角*/
 #selector_time text:first-child {
-    border-radius: 8rpx 0 0 8rpx;
+    border-radius: 16rpx 16rpx 16rpx 16rpx;
 }
 
 #selector_time text:last-child {
-    border-radius: 0 8rpx 8rpx 0;
+    border-radius: 16rpx 16rpx 16rpx 16rpx;
 }
 
 #selector_info {
@@ -161,11 +161,11 @@
 }
 
 #selector_info text:first-child {
-    border-radius: 8rpx 0 0 8rpx;
+    border-radius: 16rpx 0 0 16rpx;
 }
 
 #selector_info text:last-child {
-    border-radius: 0 8rpx 8rpx 0;
+    border-radius: 0 16rpx 16rpx 0;
 }
 
 /* 添加自选 */
@@ -229,7 +229,7 @@
 .showOnInfoEmpty {
     width: 100%;
     height: 270rpx;
-    color: #888888;
+    color: #472e2eef;
     font-size: 26rpx;
     text-align: center;
     line-height: 270rpx;
@@ -240,7 +240,7 @@
   display: inline-block;
   width: 25%;
   height: 100%;
-  line-height: 50rpx;
+  line-height: 60rpx;
   text-align: center;
   align-content: left;
 }
@@ -250,7 +250,7 @@
   display: inline-block;
   width: 25%;
   height: 100%;
-  line-height: 50rpx;
+  line-height: 60rpx;
   text-align: center;
 }
 
@@ -259,7 +259,7 @@
   display: inline-block;
   width: 25%;
   height: 100%;
-  line-height: 50rpx;
+  line-height: 60rpx;
   text-align: center;
 }
 .stock-header-sortlable_right {
@@ -267,7 +267,7 @@
   display: inline-block;
   width: 25%;
   height: 100%;
-  line-height: 50rpx;
+  line-height: 60rpx;
   text-align: center;
 }
 
@@ -276,8 +276,8 @@
   padding-left: 24rpx;
   padding-right: 24rpx;
   width: 100%;
-  height: 55rpx;
+  height: 60rpx;
   box-sizing: border-box;
-  border-bottom: 1rpx solid #e4e4e4;
-  border-top: 1rpx solid #e4e4e4;
+  border-bottom: 1rpx solid #e6e6e6;
+  border-top: 1rpx solid #e6e6e6;
 }
