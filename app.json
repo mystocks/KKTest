@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/optional/optional",
-    "pages/haogu/haogu",
+    "pages/recommend/recommend",
+    "pages/statistics/statistics",
     "pages/stock/stock"
   ],
   "window": {
@@ -15,13 +15,13 @@
     "color": "#353555",
     "list": [
       {
-        "pagePath": "pages/optional/optional",
+        "pagePath": "pages/recommend/recommend",
         "text": "智能推荐",
         "iconPath": "images/k-normal.png",
         "selectedIconPath": "images/k-select.png"
       },
       {
-        "pagePath": "pages/haogu/haogu",
+        "pagePath": "pages/statistics/statistics",
         "text": "统计",
         "iconPath": "images/suc-normal.png",
         "selectedIconPath": "images/suc-select.png"

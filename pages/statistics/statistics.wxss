@@ -1,4 +1,4 @@
-/* pages/haogu/haogu.wxss */
+/* pages/statistics/statistics.wxss */
 
 .list_item {
   display: flex;

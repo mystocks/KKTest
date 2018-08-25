@@ -1,4 +1,4 @@
-// pages/haogu/haogu.js
+// pages/statistics/statistics.js
 var Api = require('../../api/api.js');
 var Util = require('../../utils/util.js')
 

@@ -1,4 +1,4 @@
-/* pages/optional/optional.wxss */
+/* pages/recommend/recommend.wxss */
 
 .container-frame{
   position: absolute;

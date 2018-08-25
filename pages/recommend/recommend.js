@@ -1,4 +1,4 @@
-// pages/optional/optional.js
+// pages/recommend/recommend.js
 var api = require('../../api/api.js');
 var optionalUtil = require('../../utils/optionalUtil.js');
 var util = require('../../utils/util.js');
@@ -256,7 +256,7 @@ function startTimer(that) {
         requestCustomGoodsInfo(that);
       }, interval);
     }
-  }, 500);
+  }, 300);
 };
 
 //停止计时
