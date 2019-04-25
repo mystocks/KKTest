@@ -79,8 +79,8 @@
     <view class="container_predict-header B1">
       <text class="S1 T2 stock-header-sortlable_left">日期</text>
       <text class="S1 T2 stock-header-sortlable_center">最新价</text>
-      <text class="S1 T2 stock-header-sortlable_center_2">预测值</text>
-      <text class="S1 C1-font stock-header-sortlable_right">实际值</text>
+      <text class="S1 T2 stock-header-sortlable_center_2">隔日预测</text>
+      <text class="S1 T2 stock-header-sortlable_right">实际涨跌幅</text>
     </view>
     <!--hover="true" hover-class="item_select"-->
     <view class="news_item" wx:key="id" wx:for="{{klinedata}}" bindtap="onNewsDetailEvent" data-news-item="{{item}}" data-news-type="0">
@@ -89,7 +89,7 @@
       <text class="S1 T3 stock-header-sortlable_center_2"> {{item.predict1}} </text>
       <text class="S1 T3 stock-header-sortlable_right"> {{item.realprice1}} </text>
     </view>
-    <view class="showOnInfoEmpty" bindtap="onInfoEmptyClick" hidden="{{klinedata.length != 0}}">无预测数据，请点击重试</view>
+    <view class="showOnInfoEmpty" bindtap="onInfoEmptyClick" hidden="{{klinedata.length != 0}}">无预测数据，请重试</view>
   </view>
 
   <!-- 统计 -->

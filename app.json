@@ -16,7 +16,7 @@
     "list": [
       {
         "pagePath": "pages/recommend/recommend",
-        "text": "智能推荐",
+        "text": "智能选股",
         "iconPath": "images/k-normal.png",
         "selectedIconPath": "images/k-select.png"
       },

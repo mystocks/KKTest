@@ -75,9 +75,9 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '智能推荐',
+      title: '智能选股',
       desc: `${getApp().globalData.shareDesc}`,
-      path: `/pages/optional/optional`
+      path: `pages/recommend/recommend`
     }
   },
 

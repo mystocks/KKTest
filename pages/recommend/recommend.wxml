@@ -50,7 +50,7 @@
     <template is="optionalItem" data="{{del:displayDelIndex,index:idx,good:itemdata}}"></template>
   </view>
   <!--image class="search-icon" mode="scaleToFill" src="../../images/optional_add.png" hidden="{{aryGoods.length != 0}}" bindtap="onAddBtnTap"></image-->
-  <view class="showLoadInfo" hidden="{{aryGoods.length != 0}}">运用机器学习预测未来股价<navigator>点击列表项查看详细</navigator></view>
+  <view class="showLoadInfo" hidden="{{aryGoods.length != 0}}">***************************<navigator>人工智能选股</navigator><navigator>点击列表查看详细</navigator><navigator>***************************</navigator></view>
 </view>
 
 <!--搜索按钮-->

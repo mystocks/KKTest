@@ -36,7 +36,7 @@ Page({
     return {
       title: '统计',
       desc: `${getApp().globalData.shareDesc}`,
-      path: `/pages/haogu/haogu`
+      path: `pages/statistics/statistics`
     }
   },
 

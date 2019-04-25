@@ -22,7 +22,7 @@ App({
     netWorkType: "",
     WIFI_REFRESH_INTERVAL: 5 * 1000,//wifi网络时刷新间隔 秒
     MOBILE_REFRESH_INTERVAL: 30 * 1000,//手机网络时刷新间隔 秒
-    shareDesc: '帮你炒好股',
+    shareDesc: '帮你选好股',
     currSystemDate: '',//当前系统日期,格式：2016-01-01
     currSystemTime: '',//当前系统时间,格式：133050
     bisshowloadtips:0,//等待获取自选股列表的时间

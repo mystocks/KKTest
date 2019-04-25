@@ -57,6 +57,7 @@ function parseKLinesData(array) {
     var day20 = 20
     var preclose= 0.0
     var realzdf = 0.0
+    var datalen = array.length;
     /*
     for (var i = array.length - 1; i >= 0; i--) {
         var item = new KLineData(array[i].datetime, array[i].open, array[i].high, array[i].low, array[i].close, array[i].ma5, array[i].ma10, array[i].ma20, array[i].amount, array[i].price, array[i].volume)
@@ -64,7 +65,7 @@ function parseKLinesData(array) {
     }*/
     //console.log('get kline result data ', array[0][0], array.length)
     //for (var i = array.length - 1; i >= 0; i--) {
-    for (var i = 0; i < array.length; i++) {
+    for (var i = 0; i < datalen; i++) {
       var data = array[i]
       var ma5 = 0.0
       var ma10 = 0.0
@@ -88,12 +89,14 @@ function parseKLinesData(array) {
         ma20sum -= array[i-day20][2]
         ma20 = ma20sum/day20
       }
-      if(preclose > 0.0)
-      {
-        realzdf = 100.0*(data[2] - preclose) / preclose
-      }
       preclose = data[2]
-      var item = new KLineData(data[0], data[1], data[3], data[4], data[2], ma5, ma10, ma20, data[5], data[2], data[5], data[6]==99999.9?'--':data[6]+'%', realzdf.toFixed(2)+'%')
+      if (i < datalen - 1) {
+        realzdf = 100.0 * (array[i+1][2] - preclose) / preclose
+      }
+      else{
+        realzdf = 99999.9;
+      }
+      var item = new KLineData(data[0], data[1], data[3], data[4], data[2], ma5, ma10, ma20, data[5], data[2], data[5], data[6] == 99999.9 ? '--' : (100.0*data[6]).toFixed(2) + '%', realzdf == 99999.9 ? '--' :realzdf.toFixed(2)+'%')
       results.push(item)
     }
     //console.log(results)

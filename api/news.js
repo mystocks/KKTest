@@ -18,7 +18,6 @@ function requestNewsDetail({id = "", url = "", type = ""} = {}) {
         },
         // url: url,
         url: `${Service.BaseUrl}web/news/StockHtml`,
-        // https://wxapp.emoney.cn/haogu365/web/news/StockHtml?type=&id=&url=
     }).then(function (res) {
         if (res.statusCode == 200) {
             if (res.data.code == 0) {
